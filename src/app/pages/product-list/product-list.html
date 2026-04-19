@@ -1,1 +1,87 @@
-<p>product-list works!</p>
+<div class="container mt-5">
+    
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+    
+        <h4 class="fw-bold">Products</h4>
+    
+        <div class="d-flex gap-2 flex-wrap">
+    
+            <!-- 🔍 Search -->
+            <input type="text" class="form-control" style="max-width: 250px;" placeholder="Search..."
+                [(ngModel)]="searchText" (input)="searchProducts()">
+    
+            <!-- 📂 Category Filter -->
+            <select class="form-select w-auto" [(ngModel)]="catagorySeleted" (change)="filterProducts()">
+                <option value="all">All Categories</option>
+                <option *ngFor="let cat of catagories" [value]="cat.name">
+                    {{ cat.name }}
+                </option>
+            </select>
+    
+        </div>
+    
+    </div>
+
+
+    <!-- Products Grid -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
+
+        @for (pro of filteredProducts; track pro.id) {
+        <div class="col">
+
+            <div class="card product-card h-100 border-0 shadow-sm">
+
+                <!-- Image -->
+                <div class="position-relative">
+                    <img [src]="pro.image" class="card-img-top product-img">
+
+                    <!-- Stock Badge -->
+                    <span class="badge bg-danger position-absolute top-0 start-0 m-2" *ngIf="pro.stock < 5">
+                        Low Stock
+                    </span>
+                </div>
+
+                <!-- Body -->
+                <div class="card-body d-flex flex-column">
+
+                    <h6 class="card-title fw-semibold">
+                        {{ pro.name }}
+                    </h6>
+
+                    <!-- Category -->
+                    <small class="text-muted mb-1">
+                        {{ pro.category }}
+                    </small>
+
+                    <!-- Rating -->
+                    <div class="mb-2 text-warning">
+                        ⭐ {{ pro.rating }}
+                    </div>
+
+                    <!-- Price -->
+                    <h5 class="fw-bold text-primary">
+                        {{ pro.price }} EGP
+                    </h5>
+
+                    <!-- Spacer -->
+                    <div class="mt-auto"></div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex gap-2 mt-3">
+                        <button class="btn btn-outline-primary w-50" (click)="Details(pro.id)">
+                            Details
+                        </button>
+
+                        <button class="btn btn-primary w-50" [disabled]="pro.stock === 0" (click)="Add(pro)">
+                            Add
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        }
+
+    </div>
+</div>

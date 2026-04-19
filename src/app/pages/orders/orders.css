@@ -1,0 +1,100 @@
+/* Container */
+.orders-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Empty State */
+.empty-state {
+    margin-top: 100px;
+}
+
+.empty-box {
+    padding: 40px;
+    border-radius: 16px;
+    background: #f8f9fa;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Order Card */
+.order-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.order-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Header */
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Status Badge */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+/* Status Colors */
+.pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.processing {
+    background: #cce5ff;
+    color: #004085;
+}
+
+.delivered {
+    background: #d4edda;
+    color: #155724;
+}
+
+.cancelled {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Items */
+.order-items {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.price {
+    font-weight: 500;
+}
+
+/* Footer */
+.order-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-size: 16px;
+}

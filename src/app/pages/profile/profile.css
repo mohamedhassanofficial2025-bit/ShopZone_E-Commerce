@@ -1,0 +1,30 @@
+.profile-wrapper {
+  min-height: 80vh;
+}
+
+.profile-card {
+  width: 320px;
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #eee;
+}
+
+.role-badge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: #f1f1f1;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+}

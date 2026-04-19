@@ -1,1 +1,55 @@
-<p>orders works!</p>
+@if (NoOrders == 0) {
+<div class="empty-state text-center">
+    <div class="empty-box">
+        <h3>🛒 No Orders Yet</h3>
+        <p class="text-muted">Looks like you haven’t placed any orders.</p>
+
+        <a routerLink="/products" class="btn btn-primary mt-3">
+            Start Shopping
+        </a>
+    </div>
+</div>
+}
+@else {
+<div class="orders-container">
+
+    @for (order of orders; track order.id) {
+    <div class="order-card">
+
+        <!-- Header -->
+        <div class="order-header">
+            <div>
+                <h5 class="mb-1">Order #{{ order.id }}</h5>
+                <small class="text-muted">{{ order.date }}</small>
+            </div>
+
+            <span class="status-badge" [ngClass]="order.status">
+                {{ order.status }}
+            </span>
+        </div>
+
+        <!-- Items -->
+        <div class="order-items">
+            @for (item of order.items; track item.productId) {
+            <div class="item-row">
+                <div class="item-info">
+                    <strong>{{ item.name }}</strong>
+                    <small>Qty: {{ item.quantity }}</small>
+                </div>
+
+                <span class="price">{{ item.price }} EGP</span>
+            </div>
+            }
+        </div>
+
+        <!-- Footer -->
+        <div class="order-footer">
+            <span>Total</span>
+            <strong>{{ order.total }} EGP</strong>
+        </div>
+
+    </div>
+    }
+
+</div>
+}

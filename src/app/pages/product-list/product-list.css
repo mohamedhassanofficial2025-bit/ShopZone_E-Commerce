@@ -1,0 +1,22 @@
+/* Product Card Hover */
+.product-card {
+  transition: all 0.3s ease;
+  border-radius: 12px;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Image */
+.product-img {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Buttons */
+.btn-primary {
+  border-radius: 8px;
+}

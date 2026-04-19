@@ -1,0 +1,160 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Ahmed Hassan",
+      "email": "ahmed@shopzone.com",
+      "password": "ahmed123",
+      "role": "user"
+    },
+    {
+      "id": 2,
+      "name": "Sara Ali",
+      "email": "sara@shopzone.com",
+      "password": "abcdefgh",
+      "role": "admin"
+    },
+    {
+      "name": "Mohamed Hassan",
+      "email": "Mohemed@gmail.com",
+      "password": "12345678",
+      "role": "user",
+      "id": 3
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Electronics"
+    },
+    {
+      "id": 2,
+      "name": "Fashion"
+    },
+    {
+      "id": 3,
+      "name": "Home"
+    },
+    {
+      "id": 4,
+      "name": "Sports"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "iPhone 14",
+      "price": 35000,
+      "category": "Electronics",
+      "stock": 10,
+      "rating": 4.8,
+      "image": "https://placehold.co/400x200?text=iPhone14"
+    },
+    {
+      "id": "2",
+      "name": "Samsung TV 50\"",
+      "price": 12000,
+      "category": "Electronics",
+      "stock": 5,
+      "rating": 4.5,
+      "image": "https://placehold.co/400x200?text=SamsungTV"
+    },
+    {
+      "id": "3",
+      "name": "Nike Running Shoes",
+      "price": 2500,
+      "category": "Fashion",
+      "stock": 20,
+      "rating": 4.3,
+      "image": "https://placehold.co/400x200?text=NikeShoes"
+    },
+    {
+      "id": "4",
+      "name": "Leather Jacket",
+      "price": 1800,
+      "category": "Fashion",
+      "stock": 8,
+      "rating": 4.1,
+      "image": "https://placehold.co/400x200?text=Jacket"
+    },
+    {
+      "id": "5",
+      "name": "Office Chair",
+      "price": 3200,
+      "category": "Home",
+      "stock": 12,
+      "rating": 4.4,
+      "image": "https://placehold.co/400x200?text=Chair"
+    },
+    {
+      "id": "6",
+      "name": "Blender",
+      "price": 900,
+      "category": "Home",
+      "stock": 15,
+      "rating": 4,
+      "image": "https://placehold.co/400x200?text=Blender"
+    },
+    {
+      "id": "7",
+      "name": "Football",
+      "price": 400,
+      "category": "Sports",
+      "stock": 25,
+      "rating": 4.6,
+      "image": "https://placehold.co/400x200?text=Football"
+    }
+  ],
+  "cart": [
+    {
+      "name": "Samsung TV 50\"",
+      "productId": "2",
+      "price": 12000,
+      "userId": 2,
+      "quantity": 1,
+      "id": 3
+    },
+    {
+      "name": "Samsung TV 50\"",
+      "productId": "2",
+      "price": 12000,
+      "userId": 3,
+      "quantity": 4,
+      "id": 4
+    },
+    {
+      "name": "Samsung TV 50\"",
+      "productId": "2",
+      "price": 12000,
+      "userId": 1,
+      "quantity": 23,
+      "id": 5
+    },
+    {
+      "name": "Office Chair",
+      "productId": "5",
+      "price": 3200,
+      "userId": 1,
+      "quantity": 3,
+      "id": 6
+    }
+  ],
+  "orders": [
+    {
+      "date": "2026-04-18T17:34:49.074Z",
+      "status": "processing",
+      "total": 7500,
+      "items": [
+        {
+          "productId": 5,
+          "name": "Nike Running Shoes",
+          "price": 2500,
+          "quantity": 3
+        }
+      ],
+      "userId": 1,
+      "id": 1
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

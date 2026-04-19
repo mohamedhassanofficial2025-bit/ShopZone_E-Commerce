@@ -1,1 +1,79 @@
-<p>product-detail works!</p>
+<div class="container mt-5">
+    <div class="row g-5">
+
+        <!-- 🖼️ Product Image Section -->
+        <div class="col-md-6">
+
+            <div class="product-image-wrapper">
+                <img [src]="curProduct.image" class="img-fluid main-img">
+            </div>
+
+            <!-- Optional thumbnails -->
+            <div class="d-flex gap-2 mt-3">
+                <img [src]="curProduct.image" class="thumb-img">
+                <img [src]="curProduct.image" class="thumb-img">
+                <img [src]="curProduct.image" class="thumb-img">
+            </div>
+
+        </div>
+
+
+        <!-- 📦 Product Details Section -->
+        <div class="col-md-6">
+
+            <h2 class="fw-bold mb-2">
+                {{ curProduct.name }}
+            </h2>
+
+            <!-- Category -->
+            <p class="text-muted mb-2">
+                {{ curProduct.category }}
+            </p>
+
+            <!-- Rating -->
+            <div class="mb-3 text-warning fs-5">
+                ⭐⭐⭐⭐☆ ({{ curProduct.rating }})
+            </div>
+
+            <!-- Price -->
+            <h3 class="text-primary fw-bold mb-3">
+                {{ curProduct.price }} EGP
+            </h3>
+
+            <!-- Stock -->
+            <p [ngClass]="curProduct.stock > 0 ? 'text-success' : 'text-danger'">
+                {{ curProduct.stock > 0 ? 'In Stock' : 'Out of Stock' }}
+            </p>
+
+            <hr>
+
+            <!-- Quantity -->
+            <div class="d-flex align-items-center gap-3 mb-4">
+                <label class="fw-semibold">Qty:</label>
+                <input [(ngModel)]="selectedQuant" type="number" class="form-control w-25" min="1" value="1" [max]="curProduct.stock">
+            </div>
+
+            <!-- Buttons -->
+            <div class="d-flex gap-3 mb-4">
+                <button class="btn btn-primary px-4" [disabled]="curProduct.stock === 0 || selectedQuant == 0" (click)="addToCart()">
+                    🛒 Add to Cart
+                </button>
+
+                <button class="btn btn-outline-secondary px-4">
+                    ❤️ Wishlist
+                </button>
+            </div>
+
+            <!-- Description -->
+            <div>
+                <h5 class="fw-bold">Description</h5>
+                <p class="text-muted">
+                    High-quality product with excellent performance and durability.
+                    Perfect for everyday use.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</div>

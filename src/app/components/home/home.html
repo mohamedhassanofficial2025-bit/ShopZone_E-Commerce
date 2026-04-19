@@ -1,0 +1,65 @@
+<div class="home-container">
+
+  <!-- HERO SECTION -->
+  <div class="hero text-center text-white d-flex flex-column justify-content-center align-items-center">
+
+    <h1 class="display-4 fw-bold">Welcome to ShopZone 🛒</h1>
+
+    <p class="lead mt-3">
+      Your modern e-commerce experience — fast, simple, and powerful.
+    </p>
+
+    <!-- Logged OUT -->
+    <div *ngIf="!isLoggedIn ()" class="mt-4 d-flex gap-3">
+      <a routerLink="/login" class="btn btn-outline-light btn-lg">
+        Login
+      </a>
+      <a routerLink="/register" class="btn btn-warning btn-lg">
+        Register
+      </a>
+    </div>
+
+    <!-- Logged IN -->
+    <div *ngIf="isLoggedIn()" class="mt-4">
+      <h4 class="mb-3">
+        👋 Hello, {{ currentUser?.name }}
+      </h4>
+
+      <a routerLink="/products" class="btn btn-light btn-lg">
+        Go Shopping
+      </a>
+    </div>
+
+  </div>
+
+
+  <!-- FEATURES SECTION -->
+  <div class="container mt-5">
+
+    <div class="row text-center g-4">
+
+      <div class="col-md-4">
+        <div class="card shadow-sm p-4 h-100">
+          <h3>🛍️ Products</h3>
+          <p>Browse thousands of items across multiple categories.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card shadow-sm p-4 h-100">
+          <h3>🛒 Cart</h3>
+          <p>Add items and manage your shopping cart easily.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card shadow-sm p-4 h-100">
+          <h3>📦 Orders</h3>
+          <p>Track your order history and delivery status.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
