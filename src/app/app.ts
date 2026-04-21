@@ -2,6 +2,7 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Navbar } from './components/navbar/navbar';
 import { Toast } from './components/toast/toast';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -11,4 +12,6 @@ import { Toast } from './components/toast/toast';
 })
 export class App {
   protected readonly title = signal('ShopZone');
+
+  constructor(private themeService: ThemeService) {}
 }

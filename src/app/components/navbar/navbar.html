@@ -21,11 +21,16 @@
       </div>
 
       <div class="ms-auto nav-actions">
+        <button class="theme-toggle" type="button" (click)="themeService.toggleTheme()">
+          <span class="theme-toggle-icon">{{ themeService.isDarkMode() ? 'Light' : 'Dark' }}</span>
+          <span>{{ themeService.isDarkMode() ? 'Light mode' : 'Dark mode' }}</span>
+        </button>
+
         <ng-container *ngIf="isLoggedIn()">
-          <div class="user-pill">
+          <!-- <div class="user-pill">
             <i class="bi bi-person-circle fs-5"></i>
             <span>Welcome {{ currentUser?.name }}</span>
-          </div>
+          </div> -->
 
           <a class="btn btn-outline-primary btn-sm" routerLink="/profile">
             Profile

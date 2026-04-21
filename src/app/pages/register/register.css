@@ -15,8 +15,8 @@
 .auth-intro,
 .auth-card {
   border-radius: 30px;
-  border: 1px solid rgba(24, 32, 38, 0.08);
-  box-shadow: 0 24px 60px rgba(73, 46, 25, 0.12);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
   backdrop-filter: blur(14px);
 }
 
@@ -70,7 +70,7 @@
 .auth-card {
   width: 100%;
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.88);
+  background: var(--surface-strong);
 }
 
 .auth-card-header h2 {
@@ -81,7 +81,7 @@
 
 .auth-card-header p {
   margin: 0.5rem 0 1.5rem;
-  color: #62707d;
+  color: var(--muted);
 }
 
 .form-label {
@@ -92,11 +92,11 @@
 .auth-switch {
   margin: 1rem 0 0;
   text-align: center;
-  color: #62707d;
+  color: var(--muted);
 }
 
 .auth-switch a {
-  color: #91381d;
+  color: var(--primary-dark);
   font-weight: 700;
 }
 

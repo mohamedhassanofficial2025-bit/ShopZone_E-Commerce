@@ -7,9 +7,9 @@
 .profile-card {
   padding: 1.8rem;
   border-radius: 30px;
-  background: rgba(255, 255, 255, 0.84);
-  border: 1px solid rgba(24, 32, 38, 0.08);
-  box-shadow: 0 22px 60px rgba(70, 46, 27, 0.12);
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
 .profile-main {
@@ -22,7 +22,7 @@
   margin: 0 auto 1.25rem;
   padding: 8px;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(180, 79, 47, 0.18), rgba(32, 54, 75, 0.18));
+  background: linear-gradient(135deg, var(--hover-soft), rgba(32, 54, 75, 0.18));
 }
 
 .profile-img {
@@ -43,8 +43,8 @@
   margin-top: 0.75rem;
   padding: 0.55rem 0.85rem;
   border-radius: 999px;
-  background: rgba(180, 79, 47, 0.1);
-  color: #91381d;
+  background: var(--hover-soft);
+  color: var(--primary-dark);
   font-size: 0.8rem;
   text-transform: uppercase;
   font-weight: 800;
@@ -60,14 +60,14 @@
 .profile-info-block {
   padding: 1rem 1.1rem;
   border-radius: 22px;
-  background: rgba(250, 244, 235, 0.72);
-  border: 1px solid rgba(24, 32, 38, 0.07);
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
 }
 
 .info-label {
   display: block;
   margin-bottom: 0.4rem;
-  color: #61707f;
+  color: var(--muted);
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.08em;

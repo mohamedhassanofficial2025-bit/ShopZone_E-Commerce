@@ -8,7 +8,6 @@ import { Product } from '../../models/product.model';
 import { Router, RouterLink } from "@angular/router";
 import { OrderService } from '../../services/order.service';
 import { Order } from '../../models/order.model';
-import { concatWith } from 'rxjs';
 import { ToastService } from '../../services/toast.service';
 
 
@@ -85,6 +84,10 @@ export class Cart implements OnInit {
     });
 
     return total;
+  }
+
+  proceedToCheckout() {
+    this.router.navigateByUrl('/checkout');
   }
 
   AddOrder() {

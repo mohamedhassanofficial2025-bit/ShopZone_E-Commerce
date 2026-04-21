@@ -1,0 +1,178 @@
+<section class="page-shell checkout-page">
+  <div class="container">
+    <div class="page-hero">
+      <div>
+        <span class="page-kicker">Secure checkout</span>
+        <h1 class="page-title">Complete your payment details before we place your order.</h1>
+        <p class="page-subtitle">
+          This checkout form is for a realistic front-end purchase experience. Your shipping and payment
+          entries are used only for this flow and are not stored as account data.
+        </p>
+      </div>
+    </div>
+
+    <div class="checkout-layout">
+      <form [formGroup]="checkoutForm" class="checkout-form glass-card">
+        <section class="checkout-section">
+          <div class="section-heading-row">
+            <span class="section-index">01</span>
+            <div>
+              <h2>Contact details</h2>
+              <p>Tell us who this order is for.</p>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div>
+              <label class="form-label">Full name</label>
+              <input class="form-control" formControlName="fullName" placeholder="Your Name">
+            </div>
+
+            <div>
+              <label class="form-label">Email</label>
+              <input class="form-control" formControlName="email" placeholder="example@email.com">
+            </div>
+
+            <div>
+              <label class="form-label">Phone</label>
+              <input class="form-control" formControlName="phone" placeholder="+20 100 000 0000">
+            </div>
+
+            <div>
+              <label class="form-label">City</label>
+              <input class="form-control" formControlName="city" placeholder="Cairo">
+            </div>
+          </div>
+        </section>
+
+        <section class="checkout-section">
+          <div class="section-heading-row">
+            <span class="section-index">02</span>
+            <div>
+              <h2>Shipping</h2>
+              <p>Choose where and how your order should arrive.</p>
+            </div>
+          </div>
+
+          <div class="form-stack">
+            <div>
+              <label class="form-label">Delivery address</label>
+              <textarea class="form-control form-textarea" formControlName="address" placeholder="Street, building, floor, apartment"></textarea>
+            </div>
+
+            <div>
+              <label class="form-label">Delivery method</label>
+              <div class="option-grid">
+                <label class="choice-card" [class.active]="checkoutForm.get('deliveryMethod')?.value === 'standard'">
+                  <input type="radio" formControlName="deliveryMethod" value="standard">
+                  <strong>Standard</strong>
+                  <span>2 to 4 business days</span>
+                  <small>45 EGP</small>
+                </label>
+
+                <label class="choice-card" [class.active]="checkoutForm.get('deliveryMethod')?.value === 'express'">
+                  <input type="radio" formControlName="deliveryMethod" value="express">
+                  <strong>Express</strong>
+                  <span>Next business day</span>
+                  <small>120 EGP</small>
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="checkout-section">
+          <div class="section-heading-row">
+            <span class="section-index">03</span>
+            <div>
+              <h2>Payment</h2>
+              <p>Use a realistic payment step before placing the order.</p>
+            </div>
+          </div>
+
+          <div class="form-stack">
+            <div class="option-grid">
+              <label class="choice-card" [class.active]="checkoutForm.get('paymentMethod')?.value === 'card'">
+                <input type="radio" formControlName="paymentMethod" value="card">
+                <strong>Credit card</strong>
+                <span>Pay securely with your card</span>
+              </label>
+
+              <label class="choice-card" [class.active]="checkoutForm.get('paymentMethod')?.value === 'cash'">
+                <input type="radio" formControlName="paymentMethod" value="cash">
+                <strong>Cash on delivery</strong>
+                <span>Pay when the order arrives</span>
+              </label>
+            </div>
+
+            @if (checkoutForm.get('paymentMethod')?.value === 'card') {
+            <div class="form-grid">
+              <div>
+                <label class="form-label">Name on card</label>
+                <input class="form-control" formControlName="cardName" placeholder="Ahmed Hassan">
+              </div>
+
+              <div>
+                <label class="form-label">Card number</label>
+                <input class="form-control" formControlName="cardNumber" placeholder="1234 5678 9012 3456">
+              </div>
+
+              <div>
+                <label class="form-label">Expiry</label>
+                <input class="form-control" formControlName="expiry" placeholder="MM/YY">
+              </div>
+
+              <div>
+                <label class="form-label">CVV</label>
+                <input class="form-control" formControlName="cvv" placeholder="123">
+              </div>
+            </div>
+            }
+          </div>
+        </section>
+      </form>
+
+      <aside class="order-summary glass-card">
+        <div class="summary-header">
+          <h2>Order summary</h2>
+          <a routerLink="/cart">Back to cart</a>
+        </div>
+
+        <div class="summary-items">
+          @for (item of items; track item.id) {
+          <div class="summary-item">
+            <div>
+              <strong>{{ item.name }}</strong>
+              <span>Qty {{ item.quantity }}</span>
+            </div>
+            <strong>{{ item.price * item.quantity | currency }}</strong>
+          </div>
+          }
+        </div>
+
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <strong>{{ getSubtotal() | currency }}</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Shipping</span>
+          <strong>{{ getShippingFee() | currency }}</strong>
+        </div>
+
+        <div class="summary-row total-row">
+          <span>Total</span>
+          <strong>{{ getFinalTotal() | currency }}</strong>
+        </div>
+
+        <button class="btn btn-primary btn-place-order" type="button" (click)="placeOrder()">
+          Confirm payment
+        </button>
+
+        <p class="summary-note">
+          This is a front-end checkout step for UX flow. Payment data is not stored in the project.
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>

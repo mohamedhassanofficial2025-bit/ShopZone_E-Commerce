@@ -32,7 +32,7 @@
         <div class="order-header">
           <div>
             <h3>Order #{{ order.id }}</h3>
-            <small class="text-muted">{{ order.date }}</small>
+            <small class="text-muted">{{ order.date| date }}</small>
           </div>
 
           <span class="status-badge" [ngClass]="order.status">

@@ -6,9 +6,9 @@
   gap: 0.75rem;
   padding: 2.5rem;
   border-radius: 32px;
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(24, 32, 38, 0.08);
-  box-shadow: 0 22px 60px rgba(70, 46, 27, 0.12);
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
 .empty-icon {
@@ -19,8 +19,8 @@
   height: 90px;
   margin: 0 auto;
   border-radius: 28px;
-  background: rgba(180, 79, 47, 0.12);
-  color: #91381d;
+  background: var(--hover-soft);
+  color: var(--primary-dark);
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -35,7 +35,7 @@
 .empty-cart p {
   max-width: 48ch;
   margin: 0;
-  color: #61707f;
+  color: var(--muted);
 }
 
 .cart-total-card {
@@ -47,7 +47,7 @@
 .cart-total-card span,
 .checkout-label {
   display: block;
-  color: #61707f;
+  color: var(--muted);
   margin-bottom: 0.35rem;
 }
 
@@ -55,15 +55,15 @@
 .checkout-box h4 {
   margin: 0;
   font-size: 2rem;
-  color: #20364b;
+  color: var(--text);
 }
 
 .cart-table {
   overflow: hidden;
   border-radius: 30px;
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(24, 32, 38, 0.08);
-  box-shadow: 0 22px 60px rgba(70, 46, 27, 0.12);
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
 .cart-row {
@@ -82,7 +82,7 @@
 }
 
 .cart-item {
-  border-bottom: 1px solid rgba(24, 32, 38, 0.07);
+  border-bottom: 1px solid var(--border);
   transition: background-color 0.22s ease, transform 0.22s ease;
 }
 
@@ -91,7 +91,7 @@
 }
 
 .cart-item:hover {
-  background: rgba(250, 244, 235, 0.85);
+  background: var(--surface-muted);
   transform: translateY(-1px);
 }
 
@@ -99,9 +99,9 @@
   width: 80px;
   min-height: 44px;
   border-radius: 14px;
-  border: 1px solid rgba(24, 32, 38, 0.12);
+  border: 1px solid var(--border);
   text-align: center;
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--surface-strong);
 }
 
 .checkout-box {
@@ -125,9 +125,9 @@
 
   .cart-item {
     margin: 0.8rem;
-    border: 1px solid rgba(24, 32, 38, 0.07);
+    border: 1px solid var(--border);
     border-radius: 22px;
-    background: rgba(255, 255, 255, 0.78);
+    background: var(--surface-soft);
   }
 
   .checkout-box {

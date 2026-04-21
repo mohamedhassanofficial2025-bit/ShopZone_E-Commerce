@@ -14,9 +14,9 @@
   padding: 2.5rem;
   text-align: center;
   border-radius: 32px;
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(24, 32, 38, 0.08);
-  box-shadow: 0 22px 60px rgba(70, 46, 27, 0.12);
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
 .empty-box h2 {
@@ -29,15 +29,14 @@
   padding: 1.4rem;
   margin-bottom: 1.2rem;
   border-radius: 28px;
-  background: rgba(255, 255, 255, 0.84);
-  border: 1px solid rgba(24, 32, 38, 0.08);
-  box-shadow: 0 18px 48px rgba(70, 46, 27, 0.11);
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
   transition: transform 0.24s ease, box-shadow 0.24s ease;
 }
 
 .order-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 24px 58px rgba(70, 46, 27, 0.15);
 }
 
 .order-header {
@@ -83,8 +82,8 @@
 
 .order-items {
   padding: 1rem 0;
-  border-top: 1px solid rgba(24, 32, 38, 0.08);
-  border-bottom: 1px solid rgba(24, 32, 38, 0.08);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .item-row {
@@ -100,12 +99,12 @@
 }
 
 .item-info small {
-  color: #61707f;
+  color: var(--muted);
 }
 
 .price {
   font-weight: 700;
-  color: #20364b;
+  color: var(--text);
 }
 
 .order-footer {

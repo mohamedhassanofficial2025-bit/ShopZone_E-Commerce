@@ -20,34 +20,6 @@
       "password": "12345678",
       "role": "user",
       "id": 3
-    },
-    {
-      "name": "john wick",
-      "email": "john@gmail.com",
-      "password": "john1234",
-      "role": "user",
-      "id": 4
-    },
-    {
-      "name": "john wick",
-      "email": "john@gmail.com",
-      "password": "john1234",
-      "role": "user",
-      "id": 5
-    },
-    {
-      "name": "john wick",
-      "email": "john@gmail.com",
-      "password": "john1234",
-      "role": "user",
-      "id": 6
-    },
-    {
-      "name": "jack sparo",
-      "email": "jack@gmail.com",
-      "password": "jack1234",
-      "role": "user",
-      "id": 7
     }
   ],
   "categories": [
@@ -159,79 +131,6 @@
       "id": 5
     }
   ],
-  "orders": [
-    {
-      "date": "2026-04-18T17:34:49.074Z",
-      "status": "processing",
-      "total": 7500,
-      "items": [
-        {
-          "productId": 5,
-          "name": "Nike Running Shoes",
-          "price": 2500,
-          "quantity": 3
-        }
-      ],
-      "userId": 1,
-      "id": 1
-    },
-    {
-      "date": "2026-04-21T12:19:55.073Z",
-      "status": "processing",
-      "total": 285600,
-      "items": [
-        {
-          "productId": 5,
-          "name": "Samsung TV 50\"",
-          "price": 12000,
-          "quantity": 23
-        },
-        {
-          "productId": 6,
-          "name": "Office Chair",
-          "price": 3200,
-          "quantity": 3
-        }
-      ],
-      "userId": 1,
-      "id": 2
-    },
-    {
-      "date": "2026-04-21T12:23:22.646Z",
-      "status": "processing",
-      "total": 47000,
-      "items": [
-        {
-          "productId": 5,
-          "name": "Samsung TV 50\"",
-          "price": 12000,
-          "quantity": 1
-        },
-        {
-          "productId": 6,
-          "name": "iPhone 14",
-          "price": 35000,
-          "quantity": 1
-        }
-      ],
-      "userId": 1,
-      "id": 3
-    },
-    {
-      "date": "2026-04-21T13:09:05.241Z",
-      "status": "processing",
-      "total": 9000,
-      "items": [
-        {
-          "productId": 6,
-          "name": "Leather Jacket",
-          "price": 1800,
-          "quantity": 5
-        }
-      ],
-      "userId": 7,
-      "id": 4
-    }
-  ],
+  "orders": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

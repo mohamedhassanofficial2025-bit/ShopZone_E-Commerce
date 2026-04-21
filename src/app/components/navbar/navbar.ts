@@ -3,6 +3,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { User } from '../../models/user.model';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,6 +16,7 @@ export class Navbar implements OnInit {
   constructor(
     private authService: AuthService,
     private cdr: ChangeDetectorRef,
+    public themeService: ThemeService,
   ) {}
   ngOnInit(): void {
     this.getUserData();

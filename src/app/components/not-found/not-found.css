@@ -10,9 +10,9 @@
   padding: 2.5rem;
   text-align: center;
   border-radius: 32px;
-  background: rgba(255, 255, 255, 0.84);
-  border: 1px solid rgba(24, 32, 38, 0.08);
-  box-shadow: 0 24px 60px rgba(70, 46, 27, 0.12);
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
 .not-found-card h1 {
@@ -25,7 +25,7 @@
 .not-found-card p {
   margin: 0 auto;
   max-width: 50ch;
-  color: #61707f;
+  color: var(--muted);
   line-height: 1.75;
 }
 

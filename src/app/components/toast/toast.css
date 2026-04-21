@@ -14,9 +14,9 @@
   grid-template-columns: 5px 1fr;
   overflow: hidden;
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid rgba(24, 32, 38, 0.08);
-  box-shadow: 0 22px 55px rgba(48, 39, 28, 0.16);
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
   backdrop-filter: blur(16px);
   pointer-events: auto;
   animation: toast-enter 0.3s ease;
@@ -44,14 +44,14 @@
 
 .toast-body p {
   margin: 0.45rem 0 0;
-  color: #61707f;
+  color: var(--muted);
   line-height: 1.55;
 }
 
 .toast-close {
   border: none;
   background: transparent;
-  color: #61707f;
+  color: var(--muted);
   font-size: 1.15rem;
   line-height: 1;
   cursor: pointer;
