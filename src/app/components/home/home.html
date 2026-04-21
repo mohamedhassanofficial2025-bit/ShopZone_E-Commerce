@@ -1,65 +1,132 @@
-<div class="home-container">
+<section class="home-page">
+  <div class="hero-shell">
+    <div class="hero-copy">
+      <span class="eyebrow">Smart shopping, without the friction</span>
 
-  <!-- HERO SECTION -->
-  <div class="hero text-center text-white d-flex flex-column justify-content-center align-items-center">
+      <h1>Everything you want to buy, easier to discover and faster to checkout.</h1>
 
-    <h1 class="display-4 fw-bold">Welcome to ShopZone 🛒</h1>
+      <p class="hero-text">
+        ShopZone brings your favorite picks into one clean experience with intuitive browsing,
+        secure shopping, and a smoother path from discovery to delivery.
+      </p>
 
-    <p class="lead mt-3">
-      Your modern e-commerce experience — fast, simple, and powerful.
-    </p>
+      <div class="hero-actions" *ngIf="!isLoggedIn()">
+        <a routerLink="/register" class="btn btn-hero-primary">Create account</a>
+        <a routerLink="/login" class="btn btn-hero-secondary">Sign in</a>
+      </div>
 
-    <!-- Logged OUT -->
-    <div *ngIf="!isLoggedIn ()" class="mt-4 d-flex gap-3">
-      <a routerLink="/login" class="btn btn-outline-light btn-lg">
-        Login
-      </a>
-      <a routerLink="/register" class="btn btn-warning btn-lg">
-        Register
-      </a>
+      <div class="hero-actions" *ngIf="isLoggedIn()">
+        <a routerLink="/products" class="btn btn-hero-primary">Start shopping</a>
+        <a routerLink="/cart" class="btn btn-hero-secondary">Review cart</a>
+      </div>
+
+      <div class="welcome-note" *ngIf="isLoggedIn()">
+        Welcome back, <strong>{{ currentUser?.name }}</strong>. Your next great find is waiting.
+      </div>
+
+      <div class="hero-metrics">
+        <div class="metric-card">
+          <strong>Fast browsing</strong>
+          <span>Clean categories and quicker discovery.</span>
+        </div>
+        <div class="metric-card">
+          <strong>Trusted orders</strong>
+          <span>Track purchases and revisit your history anytime.</span>
+        </div>
+        <div class="metric-card">
+          <strong>Easy cart flow</strong>
+          <span>Add, adjust, and checkout with less effort.</span>
+        </div>
+      </div>
     </div>
 
-    <!-- Logged IN -->
-    <div *ngIf="isLoggedIn()" class="mt-4">
-      <h4 class="mb-3">
-        👋 Hello, {{ currentUser?.name }}
-      </h4>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="showcase-card">
+        <div class="showcase-badge">New season picks</div>
+        <img src="/images/Iphone.webp" alt="Featured ShopZone product" class="hero-image">
 
-      <a routerLink="/products" class="btn btn-light btn-lg">
-        Go Shopping
-      </a>
+        <div class="showcase-panel">
+          <div>
+            <span class="panel-label">Curated shopping</span>
+            <strong>Tech, fashion, home, and more in one place.</strong>
+          </div>
+          <span class="panel-pill">Ready to explore</span>
+        </div>
+      </div>
+
+      <div class="floating-card floating-card-top">
+        <span class="floating-kicker">Top experience</span>
+        <strong>Designed to help users move faster with less confusion.</strong>
+      </div>
+
+      <div class="floating-card floating-card-bottom">
+        <strong>From homepage to order history</strong>
+        <span>Every key action stays clear, visible, and easy to reach.</span>
+      </div>
     </div>
-
   </div>
 
-
-  <!-- FEATURES SECTION -->
-  <div class="container mt-5">
-
-    <div class="row text-center g-4">
-
-      <div class="col-md-4">
-        <div class="card shadow-sm p-4 h-100">
-          <h3>🛍️ Products</h3>
-          <p>Browse thousands of items across multiple categories.</p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card shadow-sm p-4 h-100">
-          <h3>🛒 Cart</h3>
-          <p>Add items and manage your shopping cart easily.</p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card shadow-sm p-4 h-100">
-          <h3>📦 Orders</h3>
-          <p>Track your order history and delivery status.</p>
-        </div>
-      </div>
-
+  <section class="highlights-section">
+    <div class="section-heading">
+      <span class="section-tag">Why it feels better</span>
+      <h2>A homepage built around user confidence.</h2>
+      <p>
+        Instead of a single banner, users get clear direction, useful reassurance, and quick paths
+        to the parts of the store they care about most.
+      </p>
     </div>
-  </div>
 
-</div>
+    <div class="highlights-grid">
+      <article class="highlight-card">
+        <span class="highlight-icon">01</span>
+        <h3>Clear first action</h3>
+        <p>Primary buttons immediately guide guests to register or returning users to start shopping.</p>
+      </article>
+
+      <article class="highlight-card">
+        <span class="highlight-icon">02</span>
+        <h3>Trust at a glance</h3>
+        <p>Supportive copy and benefit cards explain what users can do before they need to explore.</p>
+      </article>
+
+      <article class="highlight-card">
+        <span class="highlight-icon">03</span>
+        <h3>Mobile-friendly flow</h3>
+        <p>The layout stacks cleanly on smaller screens while keeping actions, content, and imagery readable.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="journey-section">
+    <div class="journey-card">
+      <div class="journey-step">
+        <span>Browse</span>
+        <p>Explore products with less visual clutter and faster recognition.</p>
+      </div>
+
+      <div class="journey-step">
+        <span>Select</span>
+        <p>Move into product and cart actions through obvious, high-contrast CTAs.</p>
+      </div>
+
+      <div class="journey-step">
+        <span>Track</span>
+        <p>Keep confidence after purchase with simple access to orders and account details.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bottom-cta">
+    <div>
+      <span class="section-tag">Ready when they are</span>
+      <h2>{{ isLoggedIn() ? 'Keep your shopping momentum going.' : 'Create an account and start browsing in minutes.' }}</h2>
+    </div>
+
+    <a
+      [routerLink]="isLoggedIn() ? '/products' : '/register'"
+      class="btn btn-bottom"
+    >
+      {{ isLoggedIn() ? 'Go to products' : 'Join ShopZone' }}
+    </a>
+  </section>
+</section>

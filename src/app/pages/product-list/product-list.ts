@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { CartItem } from '../../models/cart-item.model';
 import { AuthService } from '../../services/auth.service';
+import { ToastService } from '../../services/toast.service';
 
 
 @Component({
@@ -37,6 +38,7 @@ export class ProductList implements OnInit {
     private cartService: CartService,
     private cdr: ChangeDetectorRef,
     private authService: AuthService,
+    private toastService: ToastService,
   ) {}
 
   /**
@@ -58,12 +60,14 @@ export class ProductList implements OnInit {
         console.log(res);
         this.products = res;
         this.filteredProducts = this.products;
+        this.cdr.detectChanges();
       },
     });
     this.productService.getAllCategory().subscribe({
       next: (res) => {
         console.log(res);
         this.catagories = res;
+        this.cdr.detectChanges();
       },
     });
     this.cartService.getCartItems(this.curUserId).subscribe({
@@ -123,7 +127,7 @@ export class ProductList implements OnInit {
     item.quantity = 1;
 
     if (this.IsAddedAlready(item)) {
-      alert('is already added to you card');
+      this.toastService.warning('Already in cart', 'This product is already added to your cart.');
     } else {
       this.AddItemToCart(item);
     }
@@ -133,7 +137,7 @@ export class ProductList implements OnInit {
     this.cartService.addToCart(item).subscribe({
       next: (res) => {
         console.log(res);
-        alert('item added successfully to cart');
+        this.toastService.success('Added to cart', 'The item was added to your cart successfully.');
       },
     });
   }

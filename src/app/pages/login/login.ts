@@ -4,11 +4,12 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { email, required } from '@angular/forms/signals';
 import { AuthService } from '../../services/auth.service';
 import { tap } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,RouterLink],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
@@ -16,7 +17,8 @@ export class Login {
   loginForm: FormGroup
   constructor(private authService: AuthService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toastService: ToastService
   ) {
     this.loginForm = new FormGroup({
       Email: new FormControl('',[Validators.required,Validators.email]),
@@ -33,6 +35,12 @@ export class Login {
     //*call login from auth Service
     this.authService.login(email, password).subscribe({
       next: (res) => {
+        if (!res.length) {
+          this.toastService.error('Login failed', 'Please check your email and password and try again.');
+          return;
+        }
+
+        this.toastService.success('Welcome back', 'You have logged in successfully.');
         console.log(res)
         this.route.queryParams.subscribe({
           next: (res) => {
@@ -44,6 +52,9 @@ export class Login {
             }
           }
         })
+      },
+      error: () => {
+        this.toastService.error('Login failed', 'Something went wrong while signing you in.');
       }
     })
   }

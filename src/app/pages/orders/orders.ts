@@ -2,10 +2,11 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { OrderService } from '../../services/order.service';
 import { Order } from '../../models/order.model';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-orders',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './orders.html',
   styleUrl: './orders.css',
 })

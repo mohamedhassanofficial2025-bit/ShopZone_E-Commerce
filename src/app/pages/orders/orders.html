@@ -1,55 +1,65 @@
 @if (NoOrders == 0) {
-<div class="empty-state text-center">
-    <div class="empty-box">
-        <h3>🛒 No Orders Yet</h3>
-        <p class="text-muted">Looks like you haven’t placed any orders.</p>
+<section class="page-shell orders-page">
+  <div class="container">
+    <div class="empty-state">
+      <div class="empty-box">
+        <span class="page-kicker">Orders</span>
+        <h2>No orders yet</h2>
+        <p class="text-muted">When you place your first order, it will appear here with status and item details.</p>
 
         <a routerLink="/products" class="btn btn-primary mt-3">
-            Start Shopping
+          Start Shopping
         </a>
+      </div>
     </div>
-</div>
+  </div>
+</section>
 }
 @else {
-<div class="orders-container">
-
-    @for (order of orders; track order.id) {
-    <div class="order-card">
-
-        <!-- Header -->
-        <div class="order-header">
-            <div>
-                <h5 class="mb-1">Order #{{ order.id }}</h5>
-                <small class="text-muted">{{ order.date }}</small>
-            </div>
-
-            <span class="status-badge" [ngClass]="order.status">
-                {{ order.status }}
-            </span>
-        </div>
-
-        <!-- Items -->
-        <div class="order-items">
-            @for (item of order.items; track item.productId) {
-            <div class="item-row">
-                <div class="item-info">
-                    <strong>{{ item.name }}</strong>
-                    <small>Qty: {{ item.quantity }}</small>
-                </div>
-
-                <span class="price">{{ item.price }} EGP</span>
-            </div>
-            }
-        </div>
-
-        <!-- Footer -->
-        <div class="order-footer">
-            <span>Total</span>
-            <strong>{{ order.total }} EGP</strong>
-        </div>
-
+<section class="page-shell orders-page">
+  <div class="container">
+    <div class="page-hero">
+      <div>
+        <span class="page-kicker">Order history</span>
+        <h1 class="page-title">Track every purchase in one clearer timeline.</h1>
+        <p class="page-subtitle">Order cards now surface the details users care about first: date, status, items, and total.</p>
+      </div>
     </div>
-    }
 
-</div>
+    <div class="orders-container">
+      @for (order of orders; track order.id) {
+      <article class="order-card">
+        <div class="order-header">
+          <div>
+            <h3>Order #{{ order.id }}</h3>
+            <small class="text-muted">{{ order.date }}</small>
+          </div>
+
+          <span class="status-badge" [ngClass]="order.status">
+            {{ order.status }}
+          </span>
+        </div>
+
+        <div class="order-items">
+          @for (item of order.items; track item.productId) {
+          <div class="item-row">
+            <div class="item-info">
+              <strong>{{ item.name }}</strong>
+              <small>Qty: {{ item.quantity }}</small>
+            </div>
+
+            <span class="price">{{ item.price }} EGP</span>
+          </div>
+          }
+        </div>
+
+        <div class="order-footer">
+          <span>Total</span>
+          <strong>{{ order.total }} EGP</strong>
+        </div>
+      </article>
+      }
+    </div>
+  </div>
+</section>
 }

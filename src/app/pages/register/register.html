@@ -1,81 +1,98 @@
-<div class="auth-wrapper">
+<section class="auth-wrapper auth-register">
+  <div class="auth-layout">
+    <div class="auth-intro">
+      <span class="page-kicker">New here</span>
+      <h1>Create your ShopZone account and start browsing with confidence.</h1>
+      <p>
+        A better shopping experience starts with a clean onboarding flow. Sign up once,
+        then manage products, cart activity, orders, and profile details from one place.
+      </p>
+
+      <div class="auth-points">
+        <div class="auth-point">
+          <strong>Easy start</strong>
+          <span>Simple form structure with clear validation and less visual noise.</span>
+        </div>
+        <div class="auth-point">
+          <strong>Better continuity</strong>
+          <span>Create your account and move straight into a more guided shopping journey.</span>
+        </div>
+      </div>
+    </div>
 
     <form [formGroup]="registerForm" (ngSubmit)="Register()" class="auth-card">
+      <div class="auth-card-header">
+        <h2>Create account</h2>
+        <p>Fill in your details to join ShopZone.</p>
+      </div>
 
-        <h3 class="text-center mb-4">Create Account</h3>
+      <div class="mb-3">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-control" formControlName="FullName" placeholder="John Doe" />
 
-        <!-- Full Name -->
-        <div class="mb-3">
-            <label class="form-label">Full Name</label>
-
-            <input type="text" class="form-control" formControlName="FullName" placeholder="John Doe" />
-
-            @if (getName()?.invalid && getName()?.touched) {
-            <div class="text-danger mt-1">
-                @if (getName()?.errors?.['required']) {
-                <small>Name is required</small>
-                }
-                @else if (getName()?.errors?.['minlength']) {
-                <small>Minimum 10 characters required</small>
-                }
-            </div>
-            }
+        @if (getName()?.invalid && getName()?.touched) {
+        <div class="text-danger mt-2">
+          @if (getName()?.errors?.['required']) {
+          <small>Name is required</small>
+          }
+          @else if (getName()?.errors?.['minlength']) {
+          <small>Minimum 10 characters required</small>
+          }
         </div>
+        }
+      </div>
 
-        <!-- Email -->
-        <div class="mb-3">
-            <label class="form-label">Email</label>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" formControlName="Email" placeholder="example@gmail.com" />
 
-            <input type="email" class="form-control" formControlName="Email" placeholder="example@gmail.com" />
-
-            @if (getEmail()?.invalid && getEmail()?.touched) {
-            <div class="text-danger mt-1">
-                @if (getEmail()?.errors?.['required']) {
-                <small>Email is required</small>
-                }
-                @else if (getEmail()?.errors?.['email']) {
-                <small>Invalid email format</small>
-                }
-            </div>
-            }
+        @if (getEmail()?.invalid && getEmail()?.touched) {
+        <div class="text-danger mt-2">
+          @if (getEmail()?.errors?.['required']) {
+          <small>Email is required</small>
+          }
+          @else if (getEmail()?.errors?.['email']) {
+          <small>Invalid email format</small>
+          }
         </div>
+        }
+      </div>
 
-        <!-- Password -->
-        <div class="mb-3">
-            <label class="form-label">Password</label>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="Password" placeholder="Enter password" />
 
-            <input type="password" class="form-control" formControlName="Password" placeholder="Enter password" />
-
-            @if (getPassword()?.invalid && getPassword()?.touched) {
-            <div class="text-danger mt-1">
-                @if (getPassword()?.errors?.['required']) {
-                <small>Password is required</small>
-                }
-                @else if (getPassword()?.errors?.['minlength']) {
-                <small>Minimum 8 characters required</small>
-                }
-            </div>
-            }
+        @if (getPassword()?.invalid && getPassword()?.touched) {
+        <div class="text-danger mt-2">
+          @if (getPassword()?.errors?.['required']) {
+          <small>Password is required</small>
+          }
+          @else if (getPassword()?.errors?.['minlength']) {
+          <small>Minimum 8 characters required</small>
+          }
         </div>
+        }
+      </div>
 
-        <!-- Confirm Password -->
-        <div class="mb-3">
-            <label class="form-label">Confirm Password</label>
+      <div class="mb-4">
+        <label class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" formControlName="ConfirmPassword" placeholder="Confirm password" />
 
-            <input type="password" class="form-control" formControlName="ConfirmPassword"
-                placeholder="Confirm password" />
-
-            @if (registerForm.errors?.['notMatch'] && getConfirmPassword()?.touched) {
-            <div class="text-danger mt-1">
-                <small>Passwords do not match</small>
-            </div>
-            }
+        @if (registerForm.errors?.['notMatch'] && getConfirmPassword()?.touched) {
+        <div class="text-danger mt-2">
+          <small>Passwords do not match</small>
         </div>
+        }
+      </div>
 
-        <button type="submit" class="btn btn-primary w-100" [disabled]="registerForm.invalid">
-            Create Account
-        </button>
+      <button type="submit" class="btn btn-primary w-100 py-3" [disabled]="registerForm.invalid">
+        Join ShopZone
+      </button>
 
+      <p class="auth-switch">
+        Already have an account?
+        <a routerLink="/login">Login here</a>
+      </p>
     </form>
-
-</div>
+  </div>
+</section>

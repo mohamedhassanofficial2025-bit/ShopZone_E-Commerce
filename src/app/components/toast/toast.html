@@ -1,0 +1,23 @@
+<div class="toast-stack" aria-live="polite" aria-atomic="true">
+  <article
+    *ngFor="let toast of toastService.toasts()"
+    class="toast-card"
+    [class.toast-success]="toast.type === 'success'"
+    [class.toast-error]="toast.type === 'error'"
+    [class.toast-warning]="toast.type === 'warning'"
+    [class.toast-info]="toast.type === 'info'"
+  >
+    <div class="toast-accent"></div>
+
+    <div class="toast-body">
+      <div class="toast-header">
+        <strong>{{ toast.title }}</strong>
+        <button type="button" class="toast-close" (click)="dismiss(toast.id)" aria-label="Close toast">
+          x
+        </button>
+      </div>
+
+      <p>{{ toast.message }}</p>
+    </div>
+  </article>
+</div>

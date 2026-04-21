@@ -22,14 +22,16 @@ export class Navbar implements OnInit {
   }
 
   getUserData() {
-    this.authService.getCurrentUser();
+    this.currentUser = this.authService.getCurrentUser();
   }
 
   logout() {
     this.authService.logout();
+    this.currentUser = null;
     this.cdr.detectChanges();
   }
   isLoggedIn(): boolean {
+    this.getUserData();
     return this.authService.isLoggedIn();
   }
 }

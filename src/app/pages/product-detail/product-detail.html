@@ -1,79 +1,87 @@
-<div class="container mt-5">
-    <div class="row g-5">
-
-        <!-- 🖼️ Product Image Section -->
-        <div class="col-md-6">
-
-            <div class="product-image-wrapper">
-                <img [src]="curProduct.image" class="img-fluid main-img">
-            </div>
-
-            <!-- Optional thumbnails -->
-            <div class="d-flex gap-2 mt-3">
-                <img [src]="curProduct.image" class="thumb-img">
-                <img [src]="curProduct.image" class="thumb-img">
-                <img [src]="curProduct.image" class="thumb-img">
-            </div>
-
-        </div>
-
-
-        <!-- 📦 Product Details Section -->
-        <div class="col-md-6">
-
-            <h2 class="fw-bold mb-2">
-                {{ curProduct.name }}
-            </h2>
-
-            <!-- Category -->
-            <p class="text-muted mb-2">
-                {{ curProduct.category }}
-            </p>
-
-            <!-- Rating -->
-            <div class="mb-3 text-warning fs-5">
-                ⭐⭐⭐⭐☆ ({{ curProduct.rating }})
-            </div>
-
-            <!-- Price -->
-            <h3 class="text-primary fw-bold mb-3">
-                {{ curProduct.price }} EGP
-            </h3>
-
-            <!-- Stock -->
-            <p [ngClass]="curProduct.stock > 0 ? 'text-success' : 'text-danger'">
-                {{ curProduct.stock > 0 ? 'In Stock' : 'Out of Stock' }}
-            </p>
-
-            <hr>
-
-            <!-- Quantity -->
-            <div class="d-flex align-items-center gap-3 mb-4">
-                <label class="fw-semibold">Qty:</label>
-                <input [(ngModel)]="selectedQuant" type="number" class="form-control w-25" min="1" value="1" [max]="curProduct.stock">
-            </div>
-
-            <!-- Buttons -->
-            <div class="d-flex gap-3 mb-4">
-                <button class="btn btn-primary px-4" [disabled]="curProduct.stock === 0 || selectedQuant == 0" (click)="addToCart()">
-                    🛒 Add to Cart
-                </button>
-
-                <button class="btn btn-outline-secondary px-4">
-                    ❤️ Wishlist
-                </button>
-            </div>
-
-            <!-- Description -->
-            <div>
-                <h5 class="fw-bold">Description</h5>
-                <p class="text-muted">
-                    High-quality product with excellent performance and durability.
-                    Perfect for everyday use.
-                </p>
-            </div>
-
-        </div>
-
+<section class="page-shell product-detail-page">
+  <div class="container">
+    <div class="page-hero">
+      <div>
+        <span class="page-kicker">Product details</span>
+        <h1 class="page-title">{{ curProduct.name }}</h1>
+        <p class="page-subtitle">
+          Review the essential information, choose your quantity, and move into cart actions from a
+          layout that keeps pricing, stock, and purchase controls easy to scan.
+        </p>
+      </div>
     </div>
-</div>
+
+    <div class="row g-4 align-items-start">
+      <div class="col-lg-6">
+        <div class="product-media-shell glass-card">
+          <div class="product-image-wrapper">
+            <img [src]="curProduct.image" class="main-img" [alt]="curProduct.name">
+          </div>
+
+          <div class="thumb-strip">
+            <img [src]="curProduct.image" class="thumb-img" [alt]="curProduct.name + ' preview 1'">
+            <img [src]="curProduct.image" class="thumb-img" [alt]="curProduct.name + ' preview 2'">
+            <img [src]="curProduct.image" class="thumb-img" [alt]="curProduct.name + ' preview 3'">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="product-info glass-card">
+          <div class="detail-top">
+            <span class="detail-category">{{ curProduct.category }}</span>
+            <span class="detail-rating">{{ curProduct.rating }} / 5 rating</span>
+          </div>
+
+          <div class="price-row">
+            <strong>{{ curProduct.price }} EGP</strong>
+            <span class="stock-pill" [class.out]="curProduct.stock === 0">
+              {{ curProduct.stock > 0 ? 'In Stock' : 'Out of Stock' }}
+            </span>
+          </div>
+
+          <div class="detail-section">
+            <label class="qty-label">Quantity</label>
+            <input
+              [(ngModel)]="selectedQuant"
+              type="number"
+              class="form-control qty-input"
+              min="1"
+              value="1"
+              [max]="curProduct.stock"
+            >
+          </div>
+
+          <div class="detail-actions">
+            <button class="btn btn-primary px-4 py-3" [disabled]="curProduct.stock === 0 || selectedQuant == 0" (click)="addToCart()">
+              Add to cart
+            </button>
+
+            <button class="btn btn-outline-primary px-4 py-3">
+              Save for later
+            </button>
+          </div>
+
+          <div class="detail-grid">
+            <div class="detail-card">
+              <strong>Reliable quality</strong>
+              <p>Balanced product presentation helps users evaluate items with less guesswork.</p>
+            </div>
+
+            <div class="detail-card">
+              <strong>Checkout ready</strong>
+              <p>Quantity and cart actions stay visible so purchase intent turns into action faster.</p>
+            </div>
+          </div>
+
+          <div class="detail-section description-block">
+            <h5>Description</h5>
+            <p>
+              High-quality product with excellent performance and durability. Perfect for everyday use.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

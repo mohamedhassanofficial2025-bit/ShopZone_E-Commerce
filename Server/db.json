@@ -20,6 +20,34 @@
       "password": "12345678",
       "role": "user",
       "id": 3
+    },
+    {
+      "name": "john wick",
+      "email": "john@gmail.com",
+      "password": "john1234",
+      "role": "user",
+      "id": 4
+    },
+    {
+      "name": "john wick",
+      "email": "john@gmail.com",
+      "password": "john1234",
+      "role": "user",
+      "id": 5
+    },
+    {
+      "name": "john wick",
+      "email": "john@gmail.com",
+      "password": "john1234",
+      "role": "user",
+      "id": 6
+    },
+    {
+      "name": "jack sparo",
+      "email": "jack@gmail.com",
+      "password": "jack1234",
+      "role": "user",
+      "id": 7
     }
   ],
   "categories": [
@@ -48,7 +76,7 @@
       "category": "Electronics",
       "stock": 10,
       "rating": 4.8,
-      "image": "https://placehold.co/400x200?text=iPhone14"
+      "image": "https://images.pexels.com/photos/3934704/pexels-photo-3934704.jpeg?cs=srgb&dl=pexels-danielle-de-angelis-1477621-3934704.jpg&fm=jpg"
     },
     {
       "id": "2",
@@ -57,7 +85,7 @@
       "category": "Electronics",
       "stock": 5,
       "rating": 4.5,
-      "image": "https://placehold.co/400x200?text=SamsungTV"
+      "image": "https://images.pexels.com/photos/13722886/pexels-photo-13722886.jpeg?cs=srgb&dl=pexels-perqued-13722886.jpg&fm=jpg"
     },
     {
       "id": "3",
@@ -66,7 +94,7 @@
       "category": "Fashion",
       "stock": 20,
       "rating": 4.3,
-      "image": "https://placehold.co/400x200?text=NikeShoes"
+      "image": "https://images.pexels.com/photos/2404959/pexels-photo-2404959.png?cs=srgb&dl=pexels-fsoerensen-2404959.jpg&fm=jpg"
     },
     {
       "id": "4",
@@ -75,7 +103,7 @@
       "category": "Fashion",
       "stock": 8,
       "rating": 4.1,
-      "image": "https://placehold.co/400x200?text=Jacket"
+      "image": "https://images.pexels.com/photos/27090453/pexels-photo-27090453.jpeg?cs=srgb&dl=pexels-travel-with-lenses-734723610-27090453.jpg&fm=jpg"
     },
     {
       "id": "5",
@@ -84,7 +112,7 @@
       "category": "Home",
       "stock": 12,
       "rating": 4.4,
-      "image": "https://placehold.co/400x200?text=Chair"
+      "image": "https://images.pexels.com/photos/6446321/pexels-photo-6446321.jpeg?cs=srgb&dl=pexels-content-prod-co-6446321.jpg&fm=jpg"
     },
     {
       "id": "6",
@@ -93,7 +121,7 @@
       "category": "Home",
       "stock": 15,
       "rating": 4,
-      "image": "https://placehold.co/400x200?text=Blender"
+      "image": "https://images.pexels.com/photos/6824660/pexels-photo-6824660.jpeg?cs=srgb&dl=pexels-eva-bronzini-6824660.jpg&fm=jpg"
     },
     {
       "id": "7",
@@ -102,7 +130,7 @@
       "category": "Sports",
       "stock": 25,
       "rating": 4.6,
-      "image": "https://placehold.co/400x200?text=Football"
+      "image": "https://images.pexels.com/photos/9468611/pexels-photo-9468611.jpeg?cs=srgb&dl=pexels-omar-ramadan-1739260-9468611.jpg&fm=jpg"
     }
   ],
   "cart": [
@@ -123,20 +151,12 @@
       "id": 4
     },
     {
-      "name": "Samsung TV 50\"",
-      "productId": "2",
-      "price": 12000,
-      "userId": 1,
-      "quantity": 23,
-      "id": 5
-    },
-    {
-      "name": "Office Chair",
-      "productId": "5",
-      "price": 3200,
+      "name": "Nike Running Shoes",
+      "productId": "3",
+      "price": 2500,
       "userId": 1,
       "quantity": 3,
-      "id": 6
+      "id": 5
     }
   ],
   "orders": [
@@ -154,6 +174,63 @@
       ],
       "userId": 1,
       "id": 1
+    },
+    {
+      "date": "2026-04-21T12:19:55.073Z",
+      "status": "processing",
+      "total": 285600,
+      "items": [
+        {
+          "productId": 5,
+          "name": "Samsung TV 50\"",
+          "price": 12000,
+          "quantity": 23
+        },
+        {
+          "productId": 6,
+          "name": "Office Chair",
+          "price": 3200,
+          "quantity": 3
+        }
+      ],
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "date": "2026-04-21T12:23:22.646Z",
+      "status": "processing",
+      "total": 47000,
+      "items": [
+        {
+          "productId": 5,
+          "name": "Samsung TV 50\"",
+          "price": 12000,
+          "quantity": 1
+        },
+        {
+          "productId": 6,
+          "name": "iPhone 14",
+          "price": 35000,
+          "quantity": 1
+        }
+      ],
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "date": "2026-04-21T13:09:05.241Z",
+      "status": "processing",
+      "total": 9000,
+      "items": [
+        {
+          "productId": 6,
+          "name": "Leather Jacket",
+          "price": 1800,
+          "quantity": 5
+        }
+      ],
+      "userId": 7,
+      "id": 4
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

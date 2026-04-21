@@ -7,6 +7,7 @@ import { CartItem } from '../../models/cart-item.model';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../../services/cart.service';
 import { AuthService } from '../../services/auth.service';
+import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -28,6 +29,7 @@ export class ProductDetail implements OnInit {
     private cartService: CartService,
     private authService: AuthService,
     private router: Router,
+    private toastService: ToastService,
   ) {}
   ngOnInit(): void {
     this.getDataReady()
@@ -77,10 +79,13 @@ export class ProductDetail implements OnInit {
       item.quantity = this.selectedQuant;
     } else {
       item.quantity = this.curProduct.stock;
-      alert(`you add max number of item ${this.curProduct.stock}`);
+      this.toastService.warning(
+        'Quantity adjusted',
+        `The maximum available quantity for this product is ${this.curProduct.stock}.`,
+      );
     }
     if (this.IsAddedAlready(item)) {
-      alert("already added to card");
+      this.toastService.warning('Already in cart', 'This product is already added to your cart.');
     } else {
       this.AddItemToCart(item);
     }
@@ -90,7 +95,7 @@ export class ProductDetail implements OnInit {
     this.cartService.addToCart(item).subscribe({
       next: (res) => {
         console.log(res);
-        alert('item added successfully to cart');
+        this.toastService.success('Added to cart', 'The item was added to your cart successfully.');
       },
     });
   }

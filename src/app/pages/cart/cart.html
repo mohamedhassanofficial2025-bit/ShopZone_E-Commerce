@@ -1,63 +1,83 @@
 @if (NoCarts == 0) {
-<div class="empty-cart">
-    <h3>No items found 🛒</h3>
-    <a routerLink="/products" class="btn btn-primary">
-        Go shopping
-    </a>
-</div>
+<section class="page-shell cart-page">
+  <div class="container">
+    <div class="empty-cart">
+      <div class="empty-icon">Cart</div>
+      <h2>Your cart is empty</h2>
+      <p>Looks like you have not added anything yet. Explore products and build your order with ease.</p>
+      <a routerLink="/products" class="btn btn-primary btn-lg px-4 mt-2">
+        Start Shopping
+      </a>
+    </div>
+  </div>
+</section>
 }
 @else {
+<section class="page-shell cart-page">
+  <div class="container cart-container">
+    <div class="page-hero">
+      <div>
+        <span class="page-kicker">Cart review</span>
+        <h1 class="page-title">Review your items before checkout.</h1>
+        <p class="page-subtitle">Update quantities, remove anything you do not need, and move into checkout with a clearer summary.</p>
+      </div>
 
-<div class="cart-container">
-
-    <div class="cart-header">
-        <h3>Your Cart</h3>
+      <div class="cart-total-card glass-card">
+        <span>Total</span>
+        <strong>{{ getTotal() | currency }}</strong>
+      </div>
     </div>
 
     <div class="cart-table">
+      <div class="cart-row cart-head">
+        <div>Product</div>
+        <div>Price</div>
+        <div>Subtotal</div>
+        <div>Quantity</div>
+        <div>Action</div>
+      </div>
 
-        <div class="cart-row cart-head">
-            <div>Product</div>
-            <div>Price</div>
-            <div>Subtotal</div>
-            <div>Quantity</div>
-            <div>Action</div>
+      @for (item of items; track item.id) {
+      <div class="cart-row cart-item">
+        <div class="product-name fw-semibold">
+          {{ item.name }}
         </div>
 
-        @for (item of items; track item.id) {
-        <div class="cart-row">
+        <div>{{ item.price | currency }}</div>
 
-            <div class="product-name">
-                {{ item.name }}
-            </div>
-
-            <div>
-                {{ item.price | currency }}
-            </div>
-
-            <div class="fw-bold">
-                {{ item.quantity * item.price | currency }}
-            </div>
-
-            <div>
-                <input type="number" min="1" class="qty-input" [(ngModel)]="item.quantity"
-                    (ngModelChange)="changeQuantity(item, $event)" />
-            </div>
-
-            <div>
-                <button class="btn btn-danger btn-sm" (click)="remove(item.id)">
-                    Remove
-                </button>
-            </div>
-
+        <div class="fw-bold text-success">
+          {{ item.quantity * item.price | currency }}
         </div>
-        }
 
+        <div>
+          <input
+            type="number"
+            min="1"
+            class="qty-input"
+            [(ngModel)]="item.quantity"
+            (ngModelChange)="changeQuantity(item, $event)"
+          />
+        </div>
+
+        <div>
+          <button class="btn btn-danger btn-sm px-3" (click)="remove(item.id)">
+            Remove
+          </button>
+        </div>
+      </div>
+      }
     </div>
 
-    <div class="text-center mb-3" >
-        <button class="btn btn-primary" (click)="AddOrder()">checkout {{getTotal() | currency}} </button>
-    </div>
-</div>
+    <div class="checkout-box glass-card">
+      <div>
+        <span class="checkout-label">Order total</span>
+        <h4>{{ getTotal() | currency }}</h4>
+      </div>
 
+      <button class="btn btn-primary btn-lg px-5 shadow-sm" (click)="AddOrder()">
+        Checkout
+      </button>
+    </div>
+  </div>
+</section>
 }

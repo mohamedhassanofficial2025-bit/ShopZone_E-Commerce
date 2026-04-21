@@ -5,20 +5,25 @@ import { validate } from '@angular/forms/signals';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/user.model';
 import { tap } from 'rxjs';
+import { Router, RouterLink } from '@angular/router';
+import { ToastService } from '../../services/toast.service';
 
 
 @Component({
   selector: 'app-register',
-  imports: [ReactiveFormsModule,FormsModule],
+  imports: [ReactiveFormsModule,FormsModule,RouterLink],
   templateUrl: './register.html',
   styleUrl: './register.css',
 })
 export class Register {
   registerForm: FormGroup;
-  constructor(private authService:AuthService) {
+  constructor(private authService: AuthService,
+    private router: Router,
+    private toastService: ToastService
+  ) {
     
     this.registerForm = new FormGroup({
-      FullName: new FormControl('',[Validators.required,Validators.minLength(10)]),
+      FullName: new FormControl('',[Validators.required,Validators.minLength(3)]),
       Email : new FormControl('', [Validators.required, Validators.email]),
       Password : new FormControl('', [Validators.required, Validators.minLength(8)]),
       ConfirmPassword: new FormControl('', [Validators.required])
@@ -65,7 +70,11 @@ export class Register {
     // console.log(user)
     this.authService.register(user).subscribe({
       next: (res) => {
-        console.log(res)
+        this.toastService.success('Account created', 'Your account was created successfully. You can log in now.');
+        this.router.navigateByUrl('/login');
+      },
+      error: () => {
+        this.toastService.error('Sign up failed', 'We could not create your account right now. Please try again.');
       }
     })
   }

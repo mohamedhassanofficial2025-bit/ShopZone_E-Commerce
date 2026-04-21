@@ -9,6 +9,7 @@ import { Router, RouterLink } from "@angular/router";
 import { OrderService } from '../../services/order.service';
 import { Order } from '../../models/order.model';
 import { concatWith } from 'rxjs';
+import { ToastService } from '../../services/toast.service';
 
 
 @Component({
@@ -26,7 +27,8 @@ export class Cart implements OnInit {
     private cdr: ChangeDetectorRef,
     private productService: ProductService,
     private orderService: OrderService,
-    private router: Router
+    private router: Router,
+    private toastService: ToastService
   ) {}
 
   ngOnInit(): void {
@@ -55,7 +57,7 @@ export class Cart implements OnInit {
   changeQuantity(item: CartItem, Q: number): any {
     const pro: Product = this.products.find((p) => (p.id = item.productId)) as Product;
     if (Q > pro.stock || Q <= 0) {
-      alert('add max Quantity');
+      this.toastService.warning('Quantity updated', 'Please choose a valid quantity within the available stock.');
       Q = pro.stock;
     }
     let itemId: number = item.id as number;
@@ -104,6 +106,7 @@ export class Cart implements OnInit {
       next: (res) => {
         console.log(res);
         this.cartService.clearCart(userId).subscribe();
+        this.toastService.success('Order placed', 'Your order has been placed successfully.');
         this.router.navigateByUrl('/orders');
       }
     })

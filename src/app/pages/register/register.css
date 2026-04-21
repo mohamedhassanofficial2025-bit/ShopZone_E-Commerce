@@ -1,35 +1,111 @@
 .auth-wrapper {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
+  min-height: calc(100vh - 88px);
+  padding: 2rem 1.25rem 3rem;
+}
+
+.auth-layout {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr minmax(320px, 440px);
+  gap: 2rem;
   align-items: center;
-  background: #f5f7fb;
-  padding: 20px;
+}
+
+.auth-intro,
+.auth-card {
+  border-radius: 30px;
+  border: 1px solid rgba(24, 32, 38, 0.08);
+  box-shadow: 0 24px 60px rgba(73, 46, 25, 0.12);
+  backdrop-filter: blur(14px);
+}
+
+.auth-intro {
+  padding: 2.25rem;
+  background:
+    linear-gradient(135deg, rgba(32, 54, 75, 0.95), rgba(180, 79, 47, 0.8)),
+    #20364b;
+  color: #fff;
+}
+
+.auth-intro .page-kicker {
+  color: #fff4e7;
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.auth-intro h1 {
+  margin: 0.8rem 0 1rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.1rem, 4vw, 3.9rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  max-width: 12ch;
+}
+
+.auth-intro p,
+.auth-point span {
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.7;
+}
+
+.auth-points {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.auth-point {
+  padding: 1rem 1.1rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.auth-point strong {
+  display: block;
+  margin-bottom: 0.35rem;
 }
 
 .auth-card {
   width: 100%;
-  max-width: 420px;
-  background: white;
-  padding: 30px;
-  border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.88);
 }
 
-.form-control {
-  border-radius: 8px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  transition: 0.2s;
+.auth-card-header h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
 }
 
-.form-control:focus {
-  border-color: #0d6efd;
-  box-shadow: 0 0 0 0.2rem rgba(13,110,253,.15);
+.auth-card-header p {
+  margin: 0.5rem 0 1.5rem;
+  color: #62707d;
 }
 
-button {
-  border-radius: 8px;
-  padding: 10px;
-  font-weight: 500;
+.form-label {
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+}
+
+.auth-switch {
+  margin: 1rem 0 0;
+  text-align: center;
+  color: #62707d;
+}
+
+.auth-switch a {
+  color: #91381d;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .auth-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-intro h1 {
+    max-width: none;
+  }
 }
