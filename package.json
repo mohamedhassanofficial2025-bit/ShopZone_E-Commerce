@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration production --base-href /ShopZone_E-Commerce/",
+    "deploy": "ng build --configuration production --base-href /ShopZone_E-Commerce/ && npx angular-cli-ghpages --dir=dist/ShopZone/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -25,6 +27,7 @@
     "@angular/build": "^21.2.0",
     "@angular/cli": "^21.2.0",
     "@angular/compiler-cli": "^21.2.0",
+    "angular-cli-ghpages": "^3.0.2",
     "jsdom": "^28.0.0",
     "prettier": "^3.8.1",
     "typescript": "~5.9.2",
